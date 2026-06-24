@@ -2,7 +2,9 @@ from telegram import Update
 import re
 from telegram.ext import Application, MessageHandler, filters
 
-TOKEN = "8315910144:AAE2Wext-J09UZbEweaAS9DiYrTo4SPs0HY"
+import os
+
+TOKEN = os.getenv("TOKEN")
 
 async def calc(update, context):
 
