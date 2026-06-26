@@ -37,8 +37,11 @@ LC-亓亓唯一收款地址
         return
 
     # 加减乘除
-    if not re.fullmatch(r"[0-9+\-*/().\s]+", text):
-        return
+   if (
+    not re.fullmatch(r"[0-9+\-*/().\s]+", text)
+    or not re.search(r"[+\-*/]", text)
+):
+    return
 
     try:
         result = eval(text)
