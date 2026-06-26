@@ -1,10 +1,10 @@
 from telegram import Update
 import re
 from telegram.ext import Application, MessageHandler, filters
-
 import os
 
 TOKEN = os.getenv("TOKEN")
+
 
 async def calc(update, context):
 
@@ -13,10 +13,10 @@ async def calc(update, context):
     # 地址功能
     if text in ["地址", "结算", "钱包"]:
 
-        address = "TP88hmjvfxcvW4xQg3r53j5iTZfXXuuTDr"
+        address = "TCHX6EmcaijtZKiu3gNBC85m93L417Xm5R"
 
         msg = f"""
- 亓亓唯一收款地址
+LC-亓亓唯一收款地址
 
 <code>{address}</code>
 
@@ -31,13 +31,13 @@ async def calc(update, context):
 """
 
         await update.message.reply_text(
-    msg,
-    parse_mode="HTML"
-)
+            msg,
+            parse_mode="HTML"
+        )
         return
 
     # 加减乘除
-    if not re.fullmatch(r'\d+[+\-*/]\d+', text):
+    if not re.fullmatch(r"[0-9+\-*/().\s]+", text):
         return
 
     try:
@@ -52,6 +52,7 @@ async def calc(update, context):
     except:
         pass
 
+
 app = Application.builder().token(TOKEN).build()
 
 app.add_handler(
@@ -59,5 +60,7 @@ app.add_handler(
 )
 
 print("机器人启动成功")
+
+app.run_polling()
 
 app.run_polling()
