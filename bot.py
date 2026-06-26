@@ -13,7 +13,7 @@ async def calc(update, context):
     # 地址功能
     if text in ["地址", "结算", "钱包"]:
 
-        address = "TCHX6EmcaijtZKiu3gNBC85m93L417Xm5R"
+        address = "TP88hmjvfxcvW4xQg3r53j5iTZfXXuuTDr"
 
         msg = f"""
 LC-亓亓唯一收款地址
